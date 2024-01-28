@@ -1,0 +1,6 @@
+<div class="bottom-navigation">
+  <div *ngFor="let item of navigationItems" class="icon" [routerLink]="item.route" routerLinkActive="active">
+    <fa-icon [icon]="item.icon"></fa-icon>
+    <span>{{ item.name }}</span>
+  </div>
+</div>

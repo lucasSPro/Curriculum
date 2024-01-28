@@ -1,1 +1,62 @@
-/* You can add global styles to this file, and also import other style files */
+
+$background: #000;
+$background-main-container: #171616;
+$font-color: #FFF;
+
+@font-face {
+  font-family: 'Inter';
+  src: url('../src/assets/fonts/Inter-Regular.ttf') format('truetype');
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  color: $font-color;
+  background-color: $background;
+  display: flex;
+  justify-content: center;
+
+  text-align: center;
+  font-family: 'Inter', 'arial', sans-serif;
+}
+
+.main-container {
+  min-width: 260px;
+  height: 100vh;
+  flex-shrink: 0;
+  background: $background-main-container;
+}
+
+/*responsividade*/
+
+@media (max-width: 7000px) {
+  .main-container {
+    width: 960px;
+  }
+}
+@media (max-width: 648px) {
+  .main-container {
+    width: 600px;
+  }
+}
+@media (max-width: 420px) {
+  .main-container {
+    width: 380px;
+  }
+}
+@media (max-width: 360px) {
+  .main-container {
+    width: 320px;
+  }
+}
+
+
