@@ -7,11 +7,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './shared/components/navigation/navigation.component';
 
+import {TypeWriterEffectPipe} from './shared/pipes/TypeWriterEffect.pipe'
+
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
+    TypeWriterEffectPipe
   ],
   imports: [
     BrowserModule,

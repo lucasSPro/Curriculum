@@ -11,9 +11,7 @@ export class AppComponent implements OnInit{
   public name: string = '< Lucas />';
   @ViewChild('elementToAnimation') elementToAnimation!: ElementRef;
 
-  async ngOnInit() {
-    this.typeWriterEffect(this.name, 200);
-  }
+  async ngOnInit() {}
 
   toggleAnimation() {
     const element = this.elementToAnimation.nativeElement;
@@ -23,18 +21,6 @@ export class AppComponent implements OnInit{
       element.style.animationPlayState = currentState === 'running' ? 'paused' : 'running';
     } else {
       console.error('Elemento não encontrado');
-    }
-  }
-
-  async typeWriterEffect(text: string, delay: number): Promise<void> {
-    const container = document.getElementById('digit');
-    if (!container) {
-      console.error("Elemento não encontrado");
-      return;
-    }
-    for (let i = 0; i < text.length; i++) {
-      container.innerHTML += text.charAt(i);
-      await new Promise(resolve => setTimeout(resolve, delay));
     }
   }
 }
