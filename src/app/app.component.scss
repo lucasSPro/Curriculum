@@ -15,28 +15,29 @@
 .apresentation{
   display: flex;
   flex-direction: column;
-
   h1{
-    margin-top: 24px;
-    margin-bottom: 8px;
-  }
-
-  button{
     margin-top: 16px;
+    margin-bottom: 16px;
+  }
+  button{
+    margin-top: 24px;
     height: 52px;
     width: 200px;
-    color: #fff;
-    background-color: #44713C;
+    color: $font-color;
+    background-color: $primary-color;
     border-radius: 16px;
     border: none;
+    font-size: 12px;
+    font-weight: 500;
   }
 }
 
 .apresentation button:hover {
-  color: #ece9e9;
-  box-shadow: 0px 0px 4px 3px #fffefe7d;
-  border: 1px solid #ece9e9;
+  color: $font-color-hover;
+  box-shadow: 0px 0px 4px 3px $shadow-color;
+  border: 1px solid $font-color-hover;
 }
+
 
 /* Animação */
 .image-container {
@@ -47,7 +48,6 @@
   100% {background-position-y: 1160px ;}
 }
 
-
 /* navigation */
 .bottom-navigation{
   position: absolute;
@@ -56,25 +56,10 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  flex-direction: row;
 }
 
-.icon  {
-  width: 48px;
-  height: 48px;
-  border-radius: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #44713C;
-  border: 1px solid #1c1c1ca4;
-  font-size: larger;
-}
 
-.icon:hover {
-  color: #ece9e9;
-  border: 1px solid #ece9e9;
-  box-shadow: 0px 0px 2px 2px #fffefe7d;
-}
 
 
 

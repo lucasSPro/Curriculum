@@ -1,36 +1,14 @@
 <div class="center main-container">
-  <div #elementoParaAnimacao class="image-container main-container">
+  <div #elementToAnimation class="image-container main-container">
     <div class="apresentation">
       <p>Hi There, I'm</p>
       <h1 id="digit" >{{name}}</h1>
-      <p>Developer</p>
-      <button (click)="toggleAnimation()">Hire me</button>
+      <p>Front-end Developer</p>
+      <button (click)="toggleAnimation()">HIRE ME</button>
     </div>
   </div>
-
   <div class="bottom-navigation">
-    <div class="icon">
-      <div class="icon">
-        <fa-icon [icon]="icon_user"></fa-icon>
-      </div>
-    </div>
-    <div class="icon">
-      <div class="icon">
-        <fa-icon [icon]="icon_set" alt="Skills"></fa-icon>
-      </div>
-    </div>
-    <div class="icon">
-      <fa-icon [icon]="icon_certificate"></fa-icon>
-    </div>
-    <div class="icon">
-      <fa-icon [icon]="icon_coffe"></fa-icon>
-    </div>
-    <!-- <div class="icon">
-      <fa-icon [icon]="icon_blog"></fa-icon>
-    </div> -->
-    <div class="icon">
-      <fa-icon [icon]="icon_contact"></fa-icon>
-    </div>
+    <app-navigation></app-navigation>
   </div>
 </div>
 

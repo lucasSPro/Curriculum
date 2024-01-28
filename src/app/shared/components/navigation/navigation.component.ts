@@ -5,7 +5,7 @@ import { faCoffee, faUser, faCertificate,faKitchenSet, faBlog, faAddressBook, fa
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
-  styleUrls: ['./navigation.component.css']
+  styleUrls: ['./navigation.component.scss']
 })
 export class NavigationComponent implements OnInit {
 
@@ -17,12 +17,12 @@ export class NavigationComponent implements OnInit {
   icon_contact= faAddressBook;
 
   navigationItems = [
-    { icon: 'user', route: '/user', name: 'User', active: false },
-    { icon: 'set', route: '/skills', name: 'Skills', active: false },
-    { icon: 'certificate', route: '/certificates', name: 'Certificates', active: false },
-    { icon: 'coffe', route: '/works', name: 'Works', active: false },
-    // { icon: 'blog', route: '/blog', name: 'Blog', active: false },
-    { icon: 'contact', route: '/contact', name: 'Contact', active: false }
+    { icon: this.icon_user, route: '/user', name: 'User', active: false },
+    { icon: this.icon_skill, route: '/skills', name: 'Skills', active: false },
+    { icon: this.icon_certificate, route: '/certificates', name: 'Certificates', active: false },
+    { icon: this.icon_work, route: '/works', name: 'Works', active: false },
+    // { icon: this.icon_blog, route: '/blog', name: 'Blog', active: false },
+    { icon: this.icon_contact, route: '/contact', name: 'Contact', active: false }
   ];
 
   constructor() { }
