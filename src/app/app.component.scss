@@ -7,9 +7,9 @@
 }
 .image-container{
   @include flex-center;
-  background-image: url("../assets/decorator.png");
+  background-image: url("../assets/decorator_left.png");
   background-position: 0 0;
-  background-size: cover;
+  background-size:auto;
   background-repeat: repeat-y;
 }
 .apresentation{

@@ -1,0 +1,33 @@
+@import '../../../../../styles.scss';
+
+.skill-card {
+  width: 140px;
+  height: 140px;
+  margin: 10px;
+  @include base-card;
+}
+
+.skill-card img {
+  height: 40px;
+}
+.base-progress-bar {
+  width: 120px;
+  height: 4px;
+  flex-shrink: 0;
+  border-radius: 15px;
+  background: $second-color;
+  position: absolute;
+  bottom: 1rem;
+  left: 10px;
+}
+.barra-progress {
+  width: 0 ;
+  height: 4px;
+  flex-shrink: 0;
+  border-radius: 15px;
+  background: $primary-color;
+  position: absolute;
+  bottom: 1rem;
+  left: 10px;
+  transition: width 1s ease;
+}

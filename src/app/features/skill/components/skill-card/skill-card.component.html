@@ -1,0 +1,7 @@
+<div class="skill-card">
+  <h6>{{ name }}</h6>
+  <img [src]=" 'assets/icons/logo_' + image +'.png'" alt="{{ name }}" />
+  <div class="base-progress-bar"></div>
+  <p>{{ porcentage + '%' }}</p>
+  <div class="barra-progress" [style.width.%]="porcentage - 15"></div>
+</div>

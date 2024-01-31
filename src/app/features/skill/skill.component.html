@@ -1,0 +1,7 @@
+<h3>{{skill | typeWriterEffect:200 | async}}</h3>
+
+<div class="container-skill">
+  <div *ngFor="let item of listSkill; let i = index">
+    <app-skill-card [name]="item.name" [image]="item.image" [porcentage]="item.porcent"></app-skill-card>
+  </div>
+</div>

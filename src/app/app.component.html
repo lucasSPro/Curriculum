@@ -1,13 +1,8 @@
 <div class="center main-container">
   <div #elementToAnimation class="image-container main-container">
-    <div class="apresentation">
-      <p>Hi There, I'm</p>
-      <h1>{{name | typeWriterEffect:200 | async}}</h1>
-      <p>Front-end Developer</p>
-      <button (click)="toggleAnimation()">HIRE ME</button>
-    </div>
+    <router-outlet ></router-outlet>
   </div>
-  <div class="bottom-navigation">
+  <div  class="bottom-navigation">
     <app-navigation></app-navigation>
   </div>
 </div>

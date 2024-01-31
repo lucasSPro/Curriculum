@@ -1,26 +1,38 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+
+import { GlobalMessage } from 'src/app/shared/service/global-message.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit, AfterViewInit{
 
   title = 'resume';
-  public name: string = '< Lucas />';
+  initialPage = true;
   @ViewChild('elementToAnimation') elementToAnimation!: ElementRef;
+
+  constructor(private globalMessage: GlobalMessage) {}
 
   async ngOnInit() {}
 
-  toggleAnimation() {
-    const element = this.elementToAnimation.nativeElement;
+  ngAfterViewInit() {
+    this.initialPage = true;
+    this.changeStatusAnimation(false);
 
-    if (element) {
-      const currentState = element.style.animationPlayState;
-      element.style.animationPlayState = currentState === 'running' ? 'paused' : 'running';
-    } else {
-      console.error('Elemento não encontrado');
+    this.globalMessage.messageAbout$.subscribe((message: boolean) => {
+      this.changeStatusAnimation(message);
+    });
+  }
+
+  changeStatusAnimation( innitialPage: boolean) {
+    const element = this.elementToAnimation.nativeElement;
+    if (element && innitialPage) {
+      this.initialPage = false;
+      element.style.animationPlayState = 'running';
+    }else{
+      element.style.animationPlayState = 'paused';
     }
   }
 }
