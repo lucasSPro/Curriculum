@@ -1,0 +1,26 @@
+<div *ngIf="showModal" class="modal-overlay">
+
+  <div class="modal-container">
+    <div class="modal-header">
+      <h4>{{ "< " + certificate.name + " />" | typeWriterEffect:100 | async }}</h4>
+      <button (click)="closeModal()">
+        <fa-icon [icon]="icon_close"></fa-icon>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p>{{ certificate?.caption }}</p>
+      <p>{{ certificate?.issuer }}</p>
+      <div class="image-certificate">
+        <button (click)="changeCertificate(-1)">
+          <fa-icon [icon]="icon_chevron_left"></fa-icon>
+        </button>
+        <img [src]="'assets/certificates/' + certificate?.image + '.png'" alt="{{ certificate?.name }}" />
+        <button (click)="changeCertificate(1)">
+          <fa-icon [icon]="icon_chevron_right"></fa-icon>
+        </button>
+      </div>
+      <p>Ano: {{ certificate?.year }}</p>
+      <p>Duração:Duração: {{ certificate?.workload }}</p>
+    </div>
+  </div>
+</div>

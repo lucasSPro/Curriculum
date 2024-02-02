@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 
+
 @Injectable({
   providedIn: 'root',
 })
@@ -10,5 +11,6 @@ export class GlobalMessage {
 
   messageFromHireMe(message: boolean) {
     this.messageFromAboutHireMe.next(message);
+    console.log(this.messageAbout$)
   }
 }

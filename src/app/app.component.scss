@@ -12,39 +12,13 @@
   background-size:auto;
   background-repeat: repeat-y;
 }
-.apresentation{
-  display: flex;
-  flex-direction: column;
-  h1{
-    margin-top: 16px;
-    margin-bottom: 16px;
-  }
-  button{
-    margin-top: 24px;
-    height: 52px;
-    width: 200px;
-    color: $font-color;
-    background-color: $primary-color;
-    border-radius: 16px;
-    border: none;
-    font-size: 12px;
-    font-weight: 500;
-  }
-}
-
-.apresentation button:hover {
-  color: $font-color-hover;
-  box-shadow: 0px 0px 4px 3px $shadow-color;
-  border: 1px solid $font-color-hover;
-}
-
 
 /* Animação */
 .image-container {
-  animation: descer 25s steps(1000) infinite;
+  animation: up-down 25s steps(1000) infinite;
 }
 
-@keyframes descer {
+@keyframes up-down {
   100% {background-position-y: 1160px ;}
 }
 

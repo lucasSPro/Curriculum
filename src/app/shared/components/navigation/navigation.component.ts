@@ -23,7 +23,7 @@ export class NavigationComponent implements OnInit {
     { icon: this.icon_skill, route: '/skills', name: 'Skills', active: false },
     { icon: this.icon_certificate, route: '/certificates', name: 'Certificates', active: false },
     { icon: this.icon_work, route: '/works', name: 'Works', active: false },
-    // { icon: this.icon_blog, route: '/blog', name: 'Blog', active: false },
+    //{ icon: this.icon_blog, route: '/blog', name: 'Blog', active: false },
     { icon: this.icon_contact, route: '/contact', name: 'Contact', active: false }
   ];
 

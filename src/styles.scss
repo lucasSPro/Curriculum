@@ -3,7 +3,7 @@ $background: #000;
 $background-main-container: #171616;
 $background-card: #232222b3;
 $font-color: #dcdcdc;
-$primary-color: #44713C;
+$primary-color: #2c8e2a;; //#44713C; #ee720d;
 $second-color: #49544a;
 $font-color-hover: #f5f5f5;
 $shadow-color: #d7d7d77d;
@@ -24,7 +24,6 @@ $transparent-color: transparent;
 @mixin customize-scrollbar($track-color) {
   &::-webkit-scrollbar {
     width: 2px;
-
   }
 
   &::-webkit-scrollbar-track {
@@ -33,6 +32,7 @@ $transparent-color: transparent;
 
   &::-webkit-scrollbar-thumb {
     background-color: darken($track-color, 10%);;
+    margin-right: 15rem;
     border-radius: 2px;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 
@@ -44,11 +44,19 @@ $transparent-color: transparent;
 }
 
 @mixin container-box {
-  width: 740px;
+  width: 820px;
   height: 520px;
   margin-bottom: 7rem;
   margin-top: 1rem;
   border-radius: 16px;
+
+  @media (max-width: 810px) and (min-height: 741px) {
+    width: 560px;
+    .container{
+      width: 560px;
+    }
+}
+
 
   @media (max-width: 648px) and (min-height: 741px) {
       width: 350px;

@@ -10,83 +10,99 @@ export class SkillComponent implements OnInit {
   listSkill: any = [
     {
       name: 'Angular',
+      acting: 'Frontend',
       image: 'angular',
-      porcent: 90,
+      percent: 90,
     },
     {
       name: 'Angular Material',
+      acting: 'Frontend',
       image: 'angular_material',
-      porcent: 70,
+      percent: 70,
     },
     {
       name: 'Bootstrap',
+      acting: 'Frontend',
       image: 'bootstrap',
-      porcent: 70,
+      percent: 70,
     },
     {
       name: 'C#',
+      acting: 'Backend',
       image: 'cSharp',
-      porcent: 70,
+      percent: 70,
     },
     {
       name: 'Ionic',
+      acting: 'Mobile',
       image: 'ionic',
-      porcent: 80,
+      percent: 80,
     },
     {
       name: 'React',
+      acting: 'Frontend',
       image: 'react',
-      porcent: 55,
+      percent: 55,
     },
     {
       name: 'React native',
+      acting: 'Mobile',
       image: 'react',
-      porcent: 68,
+      percent: 68,
     },
     {
       name: 'Node',
+      acting: 'Backend',
       image: 'node',
-      porcent: 65,
+      percent: 65,
     },
     {
       name: 'Python',
+      acting: 'Backend',
       image: 'python',
-      porcent: 40,
+      percent: 40,
     },
     {
       name: 'Figma',
+      acting: 'Design',
       image: 'figma',
-      porcent: 70,
+      percent: 70,
     },
     {
       name: 'Javascript',
+      acting: 'Frontend',
       image: 'javascript',
-      porcent: 90,
+      percent: 90,
     },
     {
       name: 'HTML',
+      acting: 'Frontend',
       image: 'html',
-      porcent: 95,
+      percent: 95,
     },
     {
       name: 'CSS',
+      acting: 'Backend',
       image: 'css',
-      porcent: 90,
+      percent: 90,
     },
     {
       name: 'Web Components',
+      acting: 'Frontend',
       image: 'webcomponents',
-      porcent: 80,
+      percent: 80,
     },
     {
       name: 'Godot Engine',
+      acting: 'Game',
       image: 'godot',
-      porcent: 50,
+      percent: 50,
     },
     {
       name: 'Corel Draw',
+      acting: 'Design',
       image: 'corel_draw',
-      porcent: 85,
+      percent: 85,
     },
   ]
   constructor() { }
@@ -94,4 +110,11 @@ export class SkillComponent implements OnInit {
   ngOnInit() {
   }
 
+  getActsfromSkills(){
+
+  }
+
+  selectingSkillByActing(){
+
+  }
 }

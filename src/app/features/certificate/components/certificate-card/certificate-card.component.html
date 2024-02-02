@@ -1,3 +1,12 @@
-<p>
-  certificate-card works!
-</p>
+<div  class="certificate-card">
+  <h6>{{ certificate.name }}</h6>
+  <img [src]=" 'assets/certificates/' + certificate.thumbnail +'.png'" alt="{{ certificate.name }}" />
+  <p>{{ certificate.caption }}</p>
+  <button (click)="emitCertificateCode()" >
+    <fa-icon [icon]="icon_eye"></fa-icon>
+  </button>
+  <app-certificate-modal [certificate]="certificate" [showModal]="modalOpen" (closeModalEvent)="closeModal()"></app-certificate-modal>
+</div>
+
+
+

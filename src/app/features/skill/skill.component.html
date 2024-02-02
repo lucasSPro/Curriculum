@@ -1,7 +1,12 @@
 <h3>{{skill | typeWriterEffect:200 | async}}</h3>
-
+<select>
+  <option value="all">All of Skills</option>
+  <option  value="back">Backend</option>
+  <option  value="front">Frontend</option>
+  <option   value="design">Design</option>
+</select>
 <div class="container-skill">
   <div *ngFor="let item of listSkill; let i = index">
-    <app-skill-card [name]="item.name" [image]="item.image" [porcentage]="item.porcent"></app-skill-card>
+    <app-skill-card [name]="item.name" [image]="item.image" [porcentage]="item.percent"></app-skill-card>
   </div>
 </div>

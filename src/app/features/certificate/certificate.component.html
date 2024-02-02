@@ -1,5 +1,14 @@
-<h3>{{certificate | typeWriterEffect:200 | async}}</h3>
+<h3>{{certificate | typeWriterEffect:100 | async}}</h3>
 
 <div class="container-certificate">
-
+  <div *ngFor="let item of listCertificate; let i = index">
+    <app-certificate-card [certificate]="item" (certificateCodeClick)="openCertificateModal($event)"></app-certificate-card>
+  </div>
 </div>
+
+<app-certificate-modal
+[certificate]="certificateModal"
+(changeCertificateModalEvent)="changeCertificate($event)"
+[showModal]="modalOpen && (certificateModal !== null)"
+(closeModalEvent)="closeModal()">
+</app-certificate-modal>

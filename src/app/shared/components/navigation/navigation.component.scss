@@ -13,19 +13,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: $primary-color;
-
+  color: $primary-color;;
+  border: 1px solid $background-main-container;
   font-size: larger;
 }
 .icon:hover {
   color: $font-color-hover;
-
+  border: 1px solid $font-color-hover;
   box-shadow: 0px 0px 2px 2px $shadow-color;
   background: $primary-color;
 }
 .active {
   color: $font-color-hover;
-
+  border: 1px solid $font-color-hover;
   box-shadow: 0px 0px 2px 2px $shadow-color;
   background: $primary-color;
 }
