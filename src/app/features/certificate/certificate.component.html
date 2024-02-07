@@ -2,12 +2,14 @@
 
 <div class="container-certificate">
   <div *ngFor="let item of listCertificate; let i = index">
-    <app-certificate-card [certificate]="item" (certificateCodeClick)="openCertificateModal($event)"></app-certificate-card>
+    <app-certificate-card  [certificate]="item" (certificateCodeClick)="openCertificateModal($event)"></app-certificate-card>
   </div>
 </div>
 
 <app-certificate-modal
 [certificate]="certificateModal"
+[firstCertificate]="firstCertificate"
+[lastCertificate]="lastCertificate"
 (changeCertificateModalEvent)="changeCertificate($event)"
 [showModal]="modalOpen && (certificateModal !== null)"
 (closeModalEvent)="closeModal()">

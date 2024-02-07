@@ -8,19 +8,19 @@
       </button>
     </div>
     <div class="modal-body">
-      <p>{{ certificate?.caption }}</p>
-      <p>{{ certificate?.issuer }}</p>
+      <p> <b>{{ certificate?.caption }}</b></p>
       <div class="image-certificate">
-        <button (click)="changeCertificate(-1)">
+        <button [disabled]="firstCertificate" [ngClass]="{'disabled-button': firstCertificate}"  (click)="changeCertificate(-1)">
           <fa-icon [icon]="icon_chevron_left"></fa-icon>
         </button>
         <img [src]="'assets/certificates/' + certificate?.image + '.png'" alt="{{ certificate?.name }}" />
-        <button (click)="changeCertificate(1)">
+        <button [disabled]="lastCertificate" [ngClass]="{'disabled-button': lastCertificate}" (click)="changeCertificate(1)">
           <fa-icon [icon]="icon_chevron_right"></fa-icon>
         </button>
       </div>
-      <p>Ano: {{ certificate?.year }}</p>
-      <p>Duração:Duração: {{ certificate?.workload }}</p>
+      <p>Emitido por: <b>{{ certificate?.issuer }}</b> </p>
+      <p>Ano: <b>{{ certificate?.year }}</b></p>
+      <p>Duração: <b>{{ certificate?.workload }}</b> horas </p>
     </div>
   </div>
 </div>

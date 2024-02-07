@@ -9,10 +9,12 @@ import { ICertificate } from './components/certificate-card/certificate-card.com
 })
 export class CertificateComponent implements OnInit {
 
-  certificate: string = '< Continuing education />'
+  certificate: string = '< Aprendizagem Continua />'
   modalOpen: boolean = false;
   certificateModal!: ICertificate ;
   currentCertificateModal: number = 0;
+  firstCertificate: boolean =  false;
+  lastCertificate: boolean =  false;
   certificateWithMaxCode = 0;
   listCertificate: ICertificate[] = [
     {
@@ -154,14 +156,30 @@ export class CertificateComponent implements OnInit {
     } else if (numberCode === -1) {
       this.currentCertificateModal--;
     }
+    if(this.currentCertificateModal > 0 && this.currentCertificateModal < (this.certificateWithMaxCode+1)){
+      let certificateChanged = this.findCertificateByCode(this.currentCertificateModal);
+      if(certificateChanged){
+        this.certificateModal = certificateChanged;
+        this.verifyCode(this.certificateModal.code);
+      }
+    }
 
-    let certificateChanged = this.findCertificateByCode(this.currentCertificateModal);
-    if(certificateChanged){
-      this.certificateModal = certificateChanged;
+  }
+  verifyCode(code: number) {
+    if (code === 1) {
+      this.firstCertificate = true;
+    } else {
+      this.firstCertificate = false;
+    }
+    if (code === this.certificateWithMaxCode) {
+      this.lastCertificate = true;
+    } else {
+      this.lastCertificate = false;
     }
   }
 
   openCertificateModal(code: number) {
+    this.verifyCode(code);
     let currentCertificate = this.findCertificateByCode(code);
     if(currentCertificate !== null){
       this.certificateModal = currentCertificate;
@@ -184,7 +202,4 @@ export class CertificateComponent implements OnInit {
 
     return maxCode === 0 ? 0 : maxCode;
   }
-
-
-
 }

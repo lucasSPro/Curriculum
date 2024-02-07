@@ -8,7 +8,7 @@ import { GlobalMessage } from 'src/app/shared/service/global-message.service';
   styleUrls: ['./about.component.scss']
 })
 export class AboutComponent implements OnInit {
-  about: string = '< About />'
+  about: string = '< Sobre />'
   resume: string = `
   Com mais de dois anos de experiência na área de desenvolvimento de sistemas,
   demonstrei habilidades sólidas em diversas tecnologias. No front-end,

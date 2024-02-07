@@ -16,7 +16,7 @@
 
 .modal-container {
   @include container-box ;
-
+  margin-top: 2rem !important;
   background: $background-card;
   padding: 20px;
   border-radius: 10px;
@@ -41,6 +41,12 @@
   }
 }
 
+.disabled-button{
+    color: $shadow-color !important;
+    border: 1px solid $shadow-color !important;
+    cursor: default !important;
+}
+
 .modal-header {
   display: flex;
   align-items: center;
@@ -49,6 +55,9 @@
 
 .modal-body {
   margin-top: 10px;
+  p{
+    font-size: small;
+  }
 }
 
 .primary-color{
@@ -60,10 +69,41 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 1rem 0rem;
   img{
     max-width: 75%;
     max-height:75%;
     border-radius: 16px;
+
+    @media (max-height: 710px) {
+      max-width: 65% !important;
+      max-height: 65% !important;
+    }
+
+    @media (max-height: 680px) {
+      max-width: 60% !important;
+      max-height: 60% !important;
+    }
+
+    @media (max-height: 610px) {
+      max-width: 55% !important;
+      max-height: 55% !important;
+    }
+
+    @media (max-height: 570px) {
+      max-width: 40% !important;
+      max-height: 40% !important;
+    }
+
+    @media (max-height: 500px) {
+      max-width: 30% !important;
+      max-height: 30% !important;
+    }
+    @media (max-height: 400px) {
+      max-width: 20% !important;
+      max-height: 20% !important;
+    }
+
   }
   button{
     width: 24px;
@@ -76,3 +116,4 @@
     background-color: $transparent-color;
   }
 }
+

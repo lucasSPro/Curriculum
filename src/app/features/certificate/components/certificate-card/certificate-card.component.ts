@@ -22,20 +22,11 @@ export class CertificateCardComponent implements OnInit {
 
   icon_eye = faEye;
   @Output() certificateCodeClick: EventEmitter<number> = new EventEmitter<number>();
-  @Input() certificate!: ICertificate
-  modalOpen: boolean = false;
+  @Input() certificate!: ICertificate;
 
   constructor() { }
 
   ngOnInit() {
-  }
-
-  openModal() {
-    this.modalOpen = true;
-  }
-
-  closeModal() {
-    this.modalOpen = false;
   }
 
   emitCertificateCode() {

@@ -1,0 +1,217 @@
+@import '../../../../../styles.scss';
+
+.modal-overlay {
+  z-index: 88;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.modal-container {
+  @include container-box ;
+  @include customize-scrollbar($primary-color);
+  background: $background-card;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  max-width: 80%;
+  height: auto !important;
+  max-height: 80%;
+  overflow: auto;
+
+  button{
+    width: 48px;
+    height: 48px;
+    border: none;
+    cursor: pointer;
+    font-size: larger;
+    border-radius: 16px;
+    color: $font-color;
+    background-color: $transparent-color;
+  }
+  button:hover{
+    border: 1px solid $primary-color;
+  }
+}
+
+.container-center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  .image-video{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 540px;
+    height: 280px;
+
+
+    @media (max-height: 624px) and (min-width:560px) {
+        width: 520px !important;
+        height: 270px !important;
+    }
+
+    @media (max-height: 612px) and (min-width:560px) {
+        width: 432px !important;
+        height: 179px !important;
+    }
+
+    @media (max-height: 550px) and (min-width:560px) {
+        width: 405px !important;
+        height: 168px !important;
+    }
+
+    @media (max-height: 500px) and (min-width:560px) {
+        width: 378px !important;
+        height: 156px !important;
+    }
+
+    @media (max-height: 410px) and (min-width:560px) {
+        width: 351px !important;
+        height: 145px !important;
+    }
+
+    @media (max-height: 390px) and (min-width:560px) {
+        width: 324px !important;
+        height: 134px !important;
+    }
+
+    @media (max-height: 380px) and (min-width:560px) {
+        width: 297px !important;
+        height: 123px !important;
+    }
+
+    @media (max-height: 350px) and (min-width:560px) {
+        width: 270px !important;
+        height: 112px !important;
+    }
+
+    @media (max-height: 330px) and (min-width:560px) {
+        width: 243px !important;
+        height: 101px !important;
+    }
+
+    @media (max-height: 300px) and (min-width:560px) {
+        width: 216px !important;
+        height: 90px !important;
+    }
+  }
+  .tecnologies{
+    @include customize-scrollbar($primary-color);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    overflow-y: scroll;
+    max-height: 100%;
+    margin-top: 1rem;
+
+    .skill-card {
+      width: 80px;
+      height: 80px;
+      margin: 4px;
+      font-size:x-small !important;
+      @include base-card;
+      img{
+        width: 30px !important;
+        height:auto !important;
+        border-radius: 4px !important;
+      }
+      @media (max-height: 710px) and (min-width:560px) {
+        width: 65px !important;
+        height: 65px !important;
+        font-size:xx-small !important;
+        img{
+          width: 25px !important;
+          border-radius: 3px !important;
+        }
+      }
+
+      @media (max-height: 650px) and (min-width:560px) {
+          width: 60px !important;
+          height: 60px !important;
+          img{
+            width: 22px !important;
+            border-radius: 2px !important;
+          }
+      }
+    }
+
+    .skill-card img {
+      height: 30px;
+    }
+  }
+}
+.code{
+  display: flex;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal-body {
+  margin-top: 10px;
+}
+
+.primary-color{
+  color: $primary-color;
+  font-weight: 500;
+}
+
+.image-work{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  img{
+    width: 100%;
+    height:100%;
+    border-radius: 16px;
+  }
+  button{
+    width: 24px;
+    height: 48px;
+    border: none;
+    cursor: pointer;
+    font-size: larger;
+    border-radius: 16px;
+    color: $font-color;
+    background-color: $transparent-color;
+  }
+}
+
+
+
+@media (max-width: 810px)  {
+  .container-center{
+    .image-video{
+      width: 350px;
+      height: auto;
+    }
+  }
+}
+
+@media (max-width: 741px)  {
+  .container-center{
+    .image-video{
+      width: 220px;
+      height: auto;
+    }
+    .tecnologies{
+      width: 220px;
+      height: auto;
+    }
+  }
+}

@@ -1,0 +1,51 @@
+@import '../../../../../styles.scss';
+
+.work-card {
+  width: 140px;
+  height: 200px;
+  margin: 10px;
+  @include base-card;
+}
+
+.work-card img {
+  width: 140px;
+}
+
+.work-card p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.container-button{
+  margin-bottom: 0.4rem;
+  width: 1;
+  padding: 0rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+button{
+  width: 48px;
+  height: 48px;
+  border: none;
+  cursor: pointer;
+  font-size: larger;
+  border-radius: 16px;
+  color: $font-color;
+  background-color: $transparent-color;
+  svg{
+    fill: $font-color ;
+    width: 20px;
+    height: 20px;
+  }
+}
+button:hover{
+  border: 1px solid $primary-color;
+}
+
+
+
+
+
