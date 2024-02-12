@@ -13,6 +13,8 @@ export class WorkComponent implements OnInit {
   modalOpen: boolean = false;
   workModal!: IWork ;
   currentWorkModal: number = 0;
+  firstWork: boolean =  false;
+  lastWork: boolean =  false;
   workWithMaxCode = 0;
   listWork: IWork[] = [
     {
@@ -147,6 +149,7 @@ export class WorkComponent implements OnInit {
     this.globalMessage.messageFromHireMe(true);
 
     this.workWithMaxCode = this.findMaxCode();
+
     this.listWork.forEach(work =>{
       if(work.youtube){
         const link: string = work.youtube
@@ -181,9 +184,30 @@ export class WorkComponent implements OnInit {
     if(workChanged){
       this.workModal = workChanged;
     }
+    if(this.currentWorkModal > 0 && this.currentWorkModal < (this.workWithMaxCode+1)){
+      let workChanged = this.findWorkByCode(this.currentWorkModal);
+      if(workChanged){
+        this.workModal = workChanged;
+        this.verifyCode(this.workModal.code);
+      }
+    }
+  }
+
+  verifyCode(code: number) {
+    if (code === 1) {
+      this.firstWork = true;
+    } else {
+      this.firstWork = false;
+    }
+    if (code === this.workWithMaxCode) {
+      this.lastWork = true;
+    } else {
+      this.lastWork = false;
+    }
   }
 
   openWorkModal(code: number) {
+    this.verifyCode(code);
     let currentWork = this.findWorkByCode(code);
     if(currentWork !== null){
       this.workModal = currentWork;

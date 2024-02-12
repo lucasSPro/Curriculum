@@ -13,7 +13,6 @@
   justify-content: center;
 }
 
-
 .modal-container {
   @include container-box ;
   @include customize-scrollbar($primary-color);
@@ -41,119 +40,118 @@
   }
 }
 
-.container-center{
+.image-video{
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  .image-video{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 540px;
-    height: 280px;
+  width: 540px;
+  height: 314px;
 
 
-    @media (max-height: 624px) and (min-width:560px) {
-        width: 520px !important;
-        height: 270px !important;
-    }
-
-    @media (max-height: 612px) and (min-width:560px) {
-        width: 432px !important;
-        height: 179px !important;
-    }
-
-    @media (max-height: 550px) and (min-width:560px) {
-        width: 405px !important;
-        height: 168px !important;
-    }
-
-    @media (max-height: 500px) and (min-width:560px) {
-        width: 378px !important;
-        height: 156px !important;
-    }
-
-    @media (max-height: 410px) and (min-width:560px) {
-        width: 351px !important;
-        height: 145px !important;
-    }
-
-    @media (max-height: 390px) and (min-width:560px) {
-        width: 324px !important;
-        height: 134px !important;
-    }
-
-    @media (max-height: 380px) and (min-width:560px) {
-        width: 297px !important;
-        height: 123px !important;
-    }
-
-    @media (max-height: 350px) and (min-width:560px) {
-        width: 270px !important;
-        height: 112px !important;
-    }
-
-    @media (max-height: 330px) and (min-width:560px) {
-        width: 243px !important;
-        height: 101px !important;
-    }
-
-    @media (max-height: 300px) and (min-width:560px) {
-        width: 216px !important;
-        height: 90px !important;
-    }
+  @media (max-width: 550px) {
+      width: 500px !important;
+      height: 270px !important;
   }
-  .tecnologies{
-    @include customize-scrollbar($primary-color);
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: flex-start;
-    overflow-y: scroll;
-    max-height: 100%;
-    margin-top: 1rem;
 
-    .skill-card {
-      width: 80px;
-      height: 80px;
-      margin: 4px;
-      font-size:x-small !important;
-      @include base-card;
-      img{
-        width: 30px !important;
-        height:auto !important;
-        border-radius: 4px !important;
-      }
-      @media (max-height: 710px) and (min-width:560px) {
-        width: 65px !important;
-        height: 65px !important;
-        font-size:xx-small !important;
-        img{
-          width: 25px !important;
-          border-radius: 3px !important;
-        }
-      }
-
-      @media (max-height: 650px) and (min-width:560px) {
-          width: 60px !important;
-          height: 60px !important;
-          img{
-            width: 22px !important;
-            border-radius: 2px !important;
-          }
-      }
-    }
-
-    .skill-card img {
-      height: 30px;
-    }
+  @media (max-width: 515px) {
+      width: 490px !important;
+      height: 250px !important;
   }
+
+  @media (max-width: 490px) {
+      width: 405px !important;
+      height: 168px !important;
+  }
+
+  @media (max-width: 470px) {
+      width: 378px !important;
+      height: 156px !important;
+  }
+
+  @media (max-width: 450px) {
+      width: 351px !important;
+      height: 145px !important;
+  }
+
+  @media (max-width: 420px) {
+      width: 324px !important;
+      height: 134px !important;
+  }
+
+  @media (max-width: 380px) {
+      width: 297px !important;
+      height: 123px !important;
+  }
+
+  @media (max-width: 350px) {
+      width: 270px !important;
+      height: 112px !important;
+  }
+
+  @media (max-width: 330px) {
+      width: 243px !important;
+      height: 101px !important;
+  }
+
+  @media (max-height: 350px) {
+      width: 216px !important;
+      height: 90px !important;
+  }
+
 }
-.code{
+
+.container-center{
   display: flex;
   justify-content: flex-start;
-  text-align: left;
+  align-items: center;
+  flex-direction: column;
+  max-width: 80%;
+
+  .technologies {
+    overflow-x: scroll;
+    @include customize-scrollbar($primary-color);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    max-width: 100%;
+    margin-top: 1rem;
+
+  }
+}
+.skill-card {
+  min-width: 80px;
+  min-height: 80px;
+  margin: 4px;
+  font-size: x-small;
+
+  border-radius: 16px;
+  background-color: $background-card;
+
+
+h6 {
+  margin: 0;
+  padding: 10px;
+  font-size: smaller;
+}
+
+p {
+  margin: 0;
+  padding: 10px;
+  font-size: x-small;
+}
+
+&:hover {
+  box-shadow: 0px 0px 4px 3px $shadow-color;
+}
+
+img {
+  width: 30px !important;
+  height: auto !important;
+  border-radius: 4px !important;
+}
+
+
 }
 
 .modal-header {
@@ -164,6 +162,10 @@
 
 .modal-body {
   margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .primary-color{
@@ -174,10 +176,11 @@
 .image-work{
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
+  width: 100%;
   img{
     width: 100%;
-    height:100%;
+    height: auto;
     border-radius: 16px;
   }
   button{

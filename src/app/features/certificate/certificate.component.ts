@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ICertificate } from './components/certificate-card/certificate-card.component';
+import { GlobalMessage } from 'src/app/shared/service/global-message.service';
 
 @Component({
   selector: 'app-certificate',
@@ -129,9 +130,10 @@ export class CertificateComponent implements OnInit {
     },
   ]
 
-  constructor() { }
+  constructor(private globalMessage: GlobalMessage) { }
 
   ngOnInit() {
+    this.globalMessage.messageFromHireMe(true);
     this.certificateWithMaxCode = this.findMaxCode();
   }
 

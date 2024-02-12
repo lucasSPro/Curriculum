@@ -5,7 +5,7 @@
   @include flex-center;
   position: relative;
 }
-.image-container{
+.main-container{
   @include flex-center;
   background-image: url("../assets/decorator_left.png");
   background-position: 0 0;
@@ -14,7 +14,7 @@
 }
 
 /* Animação */
-.image-container {
+.main-container {
   animation: up-down 25s steps(1000) infinite;
 }
 

@@ -8,32 +8,28 @@
       </button>
     </div>
     <div class="modal-body">
+      <div class="image-video">
+        <img *ngIf="work.youtube === null" width="100%" height="100%" [src]="'assets/works/' + work?.image + '.png'" alt="{{ work?.name }}" />
+        <iframe *ngIf="work.youtube !== null" width="100%" height="100%" [src]="work.urlSafe" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen >
+        </iframe>
+      </div>
       <div class="image-work">
-        <button (click)="changeWork(-1)">
+        <button [disabled]="firstWork" [ngClass]="{'disabled-button': firstWork}" (click)="changeWork(-1)">
           <fa-icon [icon]="icon_chevron_left"></fa-icon>
         </button>
         <div class="container-center">
-          <div class="image-video">
-            <img *ngIf="work.youtube === null" [src]="'assets/works/' + work?.image + '.png'" alt="{{ work?.name }}" />
-            <iframe *ngIf="work.youtube !== null" width="100%" height="100%" [src]="work.urlSafe" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen >
-            </iframe>
-          </div>
-          <div class="tecnologies">
+          <div class="technologies">
             <div *ngFor="let item of work.tecnologies" class="skill-card">
               <h6>{{ item }}</h6>
               <img [src]=" 'assets/icons/logo_' + item +'.png'" alt="{{ item }}" />
             </div>
           </div>
         </div>
-        <button (click)="changeWork(1)">
+        <button [disabled]="lastWork" [ngClass]="{'disabled-button': lastWork}" (click)="changeWork(1)">
           <fa-icon [icon]="icon_chevron_right"></fa-icon>
         </button>
       </div>
-      <pre style="max-width: 100%;">
-        <code class="code">
-          {{work.about | typeWriterEffect:030 | async}}
-        </code>
-      </pre>
+
     </div>
   </div>
 </div>

@@ -1,5 +1,5 @@
-<h3>{{work | typeWriterEffect:100 | async}}</h3>
 
+<h3>{{work | typeWriterEffect:100 | async}}</h3>
 <div class="container-work">
   <div *ngFor="let item of listWork; let i = index">
     <app-work-card [work]="item" (workButtonClick)="openWorkModal($event)"></app-work-card>
@@ -7,9 +7,13 @@
 </div>
 
 <app-work-modal
-[work]="workModal"
-(changeWorkModalEvent)="changeWork($event)"
-[showModal]="modalOpen && (workModal !== null)"
-(closeModalEvent)="closeModal()">
+  [work]="workModal"
+  [firstWork]="firstWork"
+  [lastWork]="lastWork"
+  (changeWorkModalEvent)="changeWork($event)"
+  [showModal]="modalOpen && (workModal !== null)"
+  (closeModalEvent)="closeModal()">
 </app-work-modal>
+
+
 

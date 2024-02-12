@@ -1,0 +1,97 @@
+@import '../../../styles.scss';
+
+h3{
+  margin-bottom: 1rem;
+}
+
+.container-contact{
+  @include container-box;
+
+  background: $background-card;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+
+  .container-icons{
+    display:flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 95%;
+    margin-top: 1rem;
+    height: 25%;
+
+    .icons{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 20%;
+      height: 70%;
+
+      svg{
+        fill: $shadow-color;
+        margin-bottom: .5rem;
+        max-height: 3rem ;
+      }
+      p{
+        font-size: smaller;
+      }
+    }
+  }
+  .container-form{
+    margin-top: 1rem;
+    width: 95%;
+    margin-top: 2rem;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    label{
+      font-size: x-small;
+      margin-left: 8px;
+      margin-bottom: .3rem;
+    }
+
+    .input-text {
+      color: $font-color;
+      width: calc(100% - 2rem);
+      max-width: 100%;
+      margin-bottom: 1rem;
+      background-color: $background-input;
+      border: none;
+      border-radius: .5rem;
+
+    }
+    .input{
+      min-height: 48px;
+      padding: 0rem 1rem;
+    }
+    .input-text-area{
+      min-height: 55%;
+      padding: 1rem 1rem;
+      min-width: calc(100% - 2rem);
+    }
+  }
+}
+
+button{
+  margin-top: 3rem;
+  height: 52px;
+  width: 200px;
+  color: $font-color;
+  background-color: $primary-color;
+  border-radius: 16px;
+  border: none;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+button:hover, .input-text:hover, .input-text:active {
+color: $font-color-hover;
+box-shadow: 0px 0px 4px 3px $shadow-color;
+border: none;
+border: 1px solid $font-color-hover;
+}
+
+

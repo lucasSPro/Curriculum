@@ -1,8 +1,8 @@
 <div class="center main-container">
-  <div #elementToAnimation class="image-container main-container">
+  <div #elementToAnimation class="main-container">
     <router-outlet ></router-outlet>
   </div>
-  <div  class="bottom-navigation">
+  <div *ngIf="!initialPage"  class="bottom-navigation">
     <app-navigation></app-navigation>
   </div>
 </div>

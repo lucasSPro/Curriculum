@@ -7,7 +7,7 @@ import { GlobalMessage } from 'src/app/shared/service/global-message.service';
   styleUrls: ['./skill.component.scss']
 })
 export class SkillComponent implements OnInit {
-  skill: string = '< Habilidades />'
+  skill: string = '< Conhecimentos />'
   listSkill: any = [
     {
       name: 'Angular',

@@ -16,8 +16,11 @@ export class WorkModalComponent implements OnInit {
   @Input() work!: IWork;
   @Input() title: string = 'Modal';
   @Input() showModal: boolean = false;
+  @Input() firstWork: boolean = false;
+  @Input() lastWork: boolean = false;
   @Output() closeModalEvent: EventEmitter<void> = new EventEmitter<void>();
   @Output() changeWorkModalEvent: EventEmitter<number> = new EventEmitter<number>();
+
   playerState: number | null = null;
 
   icon_close = faClose;

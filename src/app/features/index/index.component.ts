@@ -15,6 +15,7 @@ export class IndexComponent implements OnInit, AfterViewInit {
   constructor(private router: Router, private globalMessage: GlobalMessage) {}
 
   ngOnInit() {
+    this.globalMessage.messageFromHireMe(true);
   }
   ngAfterViewInit() {}
 
