@@ -7,14 +7,65 @@ h3{
 .container-work {
   display: flex;
   flex-wrap: wrap;
+  gap: 1rem;
   justify-content: center;
+  align-items: center;
   align-items: center;
   overflow-y: scroll;
 
   @include container-box;
   @include customize-scrollbar($transparent-color);
+
+  .projects  {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: .5rem .5rem;
+    justify-content: center;
+    align-items: center;
+    overflow-y: scroll;
+    @include customize-scrollbar($transparent-color);
+    app-work-card{
+      display: flex;
+      flex: 20%;
+    }
+
+    p{
+      font-size:smaller;
+    }
+  }
+  .projects:hover {
+    overflow-y: scroll;
+    @include customize-scrollbar($primary-color);
+  }
 }
+
 .container-work:hover{
   overflow-y: scroll;
   @include customize-scrollbar($primary-color);
 }
+
+button{
+  margin: 0px 8px;
+  border: none;
+  cursor: pointer;
+  font-size: larger;
+  border-radius: 16px;
+  color: $font-color;
+  background-color: $transparent-color;
+  svg{
+    fill: $font-color ;
+    width: 20px;
+    height: 20px;
+  }
+}
+button:hover{
+  border: 1px solid $primary-color;
+}
+
+
+
+
+
+
+

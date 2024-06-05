@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
 import { GlobalMessage } from 'src/app/shared/service/global-message.service';
+import { AboutService } from './services/about.service';
+import {IAbout} from './interfaces/IAbout'
+import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-about',
@@ -9,24 +15,61 @@ import { GlobalMessage } from 'src/app/shared/service/global-message.service';
 })
 export class AboutComponent implements OnInit {
   about: string = '< Sobre />'
-  resume: string = `
-  Com mais de dois anos de experiência na área de desenvolvimento de sistemas,
-  demonstrei habilidades sólidas em diversas tecnologias. No front-end,
-  destaco meu domínio em Angular e TypeScript, enquanto no back-end, minha expertise
-  abrange .NET Framework, .NET Core e C#. Possuo proficiência em SQL e experiência
-  prática em tecnologias como Ionic, ASP Clássico, Web Forms, Python e JavaScript.
-  Além da prática profissional, acumulei uma rica bagagem acadêmica, destacando-me
-  em projetos envolvendo Node.js, React.js, React Native, Flutter e desenvolvimento
-  para Android nativo com Java. Essa combinação de experiência prática e acadêmica me
-  proporcionou uma visão abrangente e habilidades versáteis, tornando-me um profissional
-  capacitado para enfrentar desafios diversos na área de desenvolvimento de sistemas.
-  `
+  loading = true;
 
-  constructor(private globalMessage: GlobalMessage) {
+  abouts$: Observable<IAbout[]> | undefined;
+
+  listPresentation: IAbout[] = [];
+  listExperiences: IAbout[] = [];
+  listAcademy: IAbout[] = [];
+
+  constructor(private globalMessage: GlobalMessage, private aboutService: AboutService, private router: Router) {
   }
+
 
   ngOnInit() {
     this.globalMessage.messageFromHireMe(true);
+    this.globalMessage.messageInnitialPage(false);
+    this.abouts$ = this.aboutService.getAllAbout();
+    this.globalMessage.showSpinner();
+    this.abouts$.subscribe(abouts => {
+      if(abouts.length > 0){
+        this.listPresentation = [];
+        this.listExperiences = [];
+        this.listAcademy = [];
+        abouts.map(about =>{
+          switch (about.theme) {
+            case 'shortAbout':
+                this.listPresentation.push(about);
+              break;
+            case 'arrayExperiences':
+              this.listExperiences.push(about);
+              break;
+            case 'arrayAcademy':
+              this.listAcademy.push(about);
+              break;
+            default:
+              break;
+          }
+        });
+
+        this.listPresentation = this.listPresentation.sort((a,b)=> (a.code - b.code));
+        this.listExperiences = this.listExperiences.sort((a,b)=> a.code -b.code);
+        this.listAcademy = this.listAcademy.sort((a,b)=> a.code -b.code);
+
+        this.globalMessage.hideSpinner();
+
+        if(abouts.length > 0){
+          this.loading = false;
+        }
+      }else{
+        this.navigateToIndexPage();
+      }
+    });
+  }
+
+  navigateToIndexPage() {
+    this.router.navigate(['/index']);
   }
 
 }

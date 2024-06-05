@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { AboutComponent } from './about.component';
 import { AboutRoutingModule } from './about.routing';
 import { PipesModule } from 'src/app/shared/pipes/pipes.module';
+import { AboutItemComponent } from './components/about-item/about-item.component';
 
 
 
@@ -14,7 +15,8 @@ import { PipesModule } from 'src/app/shared/pipes/pipes.module';
     AboutRoutingModule,
   ],
   declarations: [
-    AboutComponent
+    AboutComponent,
+    AboutItemComponent
   ]
 })
 export class AboutModule { }

@@ -1,7 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { IWork } from './components/work-card/work-card.component';
 import { DomSanitizer } from '@angular/platform-browser';
+
 import { GlobalMessage } from 'src/app/shared/service/global-message.service';
+import { WorkService } from './services/work.service';
+import { Observable } from 'rxjs';
+import { IWork } from './interfaces/IWork';
+
+interface ISkillWork  {
+  name: string,
+  url: string
+}
 
 @Component({
   selector: 'app-work',
@@ -11,151 +19,69 @@ import { GlobalMessage } from 'src/app/shared/service/global-message.service';
 export class WorkComponent implements OnInit {
   work: string = '< Portifolio />'
   modalOpen: boolean = false;
+  loading: boolean = true;
   workModal!: IWork ;
   currentWorkModal: number = 0;
   firstWork: boolean =  false;
   lastWork: boolean =  false;
   workWithMaxCode = 0;
-  listWork: IWork[] = [
-    {
-      code: 1,
-      name: 'Clone Netflix',
-      caption: 'Desafio Dio',
-      about: `
-        <projeto>
-          Desafio realizado como parte do aprendizado html, javascript e css
-            conceitos de responsividade
-            simplificação no usso de bibliotecas
-        </projeto>
-      `,
-      tecnologies: ['html', 'css', 'javascript' ],
-      image: 'clone_netflix',
-      thumbnail: 'clone_netflix_thumbnail',
-      urlSafe: null,
-      youtube: null,
-      github: 'https://github.com/lucasSPro/cloneNetflixDIO',
-      playstore: null,
-    },
-    {
-      code: 2,
-      name: 'Dino - Dio',
-      caption: 'Desafio Dio',
-      about: '',
-      tecnologies: ['html', 'css', 'javascript' ],
-      image: 'dino_dio',
-      thumbnail: 'dino_dio_thumbnail',
-      urlSafe: null,
-      youtube: 'https://www.youtube.com/embed/qC4DaxmDvkk?si=KAnSaQVrZVsNbK4F',
-      github: 'https://github.com/lucasSPro/lucasSPro.github.io',
-      playstore: null,
-    },
-    {
-      code: 3,
-      name: 'Ecoleta',
-      caption: 'Desafio nlw',
-      about: '',
-      tecnologies: ['css', 'html', 'node', 'react', 'react native' ],
-      image: 'ecoleta',
-      thumbnail: 'ecoleta_thumbnail',
-      urlSafe: null,
-      youtube: 'https://www.youtube.com/embed/SiSmIw_moao?si=k87dyMjiZpRXQWX6',
-      github: 'https://github.com/lucasSPro/ecoleta_nlw01',
-      playstore: null,
-    },
-    {
-      code: 4,
-      name: 'Jogo da velha',
-      caption: 'Desafio Dio',
-      about: '',
-      tecnologies: ['html', 'css', 'javascript' ],
-      image: 'jogo_velha',
-      thumbnail: 'jogo_velha_thumbnail',
-      urlSafe: null,
-      youtube: null,
-      github: 'https://github.com/lucasSPro/jogo-da-velha_JS',
-      playstore: null,
-    },
-    {
-      code: 5,
-      name: 'Be the Hero',
-      caption: 'Desafio nlw',
-      about: '',
-      tecnologies: ['css', 'html', 'node', 'react', 'react native' ],
-      image: 'hero',
-      thumbnail: 'hero_thumbnail',
-      urlSafe: null,
-      youtube: 'https://www.youtube.com/embed/d_UNwhLIpTs?si=ytPc0nDWEkRl5AE_',
-      github: 'https://github.com/lucasSPro/BeTheHero',
-      playstore: null,
-    },
-    {
-      code: 6,
-      name: 'Jogo da cobrinha',
-      caption: 'Desafio Dio',
-      about: '',
-      tecnologies: ['html', 'css', 'javascript' ],
-      image: 'cobrinha',
-      thumbnail: 'cobrinha_thumbnail',
-      urlSafe: null,
-      youtube: 'https://www.youtube.com/embed/0Lv6PfPjp5E?si=0cKuGrDRhiCG3Y-d',
-      github: 'https://github.com/lucasSPro/jogoDaCobrinhaDIO',
-      playstore: null,
-    },
-    {
-      code: 7,
-      name: 'Finance Ctrl',
-      caption: 'Desafio Dio',
-      about: '',
-      tecnologies: ['cSharp', 'css', 'javascript', 'Web forms', 'My SQL' ],
-      image: 'finance',
-      thumbnail: 'finance_thumbnail',
-      urlSafe: null,
-      youtube: 'https://www.youtube.com/embed/nobI7vCoNfo?si=ToJ4vJ02B3vY5d6J',
-      github: null,
-      playstore: null,
-    },
-    {
-      code: 8,
-      name: 'Api corona',
-      caption: 'Desafio Dio',
-      about: '',
-      tecnologies: ['cSharp', 'Mongo DB'],
-      image: 'api_corona',
-      thumbnail: 'api_corona_thumbnail',
-      urlSafe: null,
-      youtube: 'https://www.youtube.com/embed/QHslKwaxYSY?si=jmQ40nPSnOBGb1AB',
-      github: 'https://github.com/lucasSPro/jogoDaCobrinhaDIO',
-      playstore: null,
-    },
-    {
-      code: 9,
-      name: 'Bot quarentena',
-      caption: 'Desafio Dio',
-      about: '',
-      tecnologies: ['node'],
-      image: 'bot_quarentena',
-      thumbnail: 'bot_quarentena_thumbnail',
-      urlSafe: null,
-      youtube: 'https://www.youtube.com/embed/0VBmjZA-Z5Q?si=wDhjpXezwk6kfPLp',
-      github: 'https://github.com/lucasSPro/chatBot-Telegram-with-node',
-      playstore: null,
-    },
+  skills!: ISkillWork ;
+  skillListWork$: Observable<ISkillWork[]> | undefined;
+  works$: Observable<IWork[]> | undefined;
+  listWork!: IWork[] ;
 
-  ]
-
-  constructor(public sanitizer: DomSanitizer, private globalMessage: GlobalMessage) { }
+  constructor(public sanitizer: DomSanitizer,
+              private globalMessage: GlobalMessage,
+              private workService: WorkService,
+              ) { }
 
   ngOnInit() {
     this.globalMessage.messageFromHireMe(true);
+    this.globalMessage.messageInnitialPage(false);
 
-    this.workWithMaxCode = this.findMaxCode();
+    this.globalMessage.showSpinner();
+    this.works$ = this.workService.getAllWorks();
 
-    this.listWork.forEach(work =>{
-      if(work.youtube){
-        const link: string = work.youtube
-        work.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(link);
+    this.works$.subscribe(works => {
+      this.globalMessage.hideSpinner();
+      if(works.length > 0){
+
+        this.loading = false;
+        this.listWork = works;
+        let counter = 1;
+        this.listWork.forEach(work =>{
+          if(work.youtube){
+            const link: string = work.youtube
+            work.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(link);
+          }
+        })
+        this.listWork = this.listWork.sort((a, b) => {
+          if (a.isWorkShop && !b.isWorkShop) {
+            return 1;
+          }
+          if (!a.isWorkShop && b.isWorkShop) {
+            return -1;
+          }
+          return 0;
+        });
+        this.listWork.map(work=>{
+          work.code = counter;
+          counter++;
+        })
+
+        this.workWithMaxCode = this.findMaxCode();
       }
-    })
+    }, (error)=>{
+      console.log(error)
+    });
+  }
+
+  addListWork(): void {
+    this.workService.addDocumentList(this.listWork).then(() => {
+      console.log('skill added successfully');
+    }).catch(error => {
+      console.error('Error adding skill:', error);
+    });
   }
 
   openModal() {
@@ -169,6 +95,7 @@ export class WorkComponent implements OnInit {
   handleWorkCodeClick(code: number) {
     this.currentWorkModal = code;
     if(code > 0){
+
       this.openModal();
     }
   }
@@ -220,7 +147,13 @@ export class WorkComponent implements OnInit {
   }
 
   private findWorkByCode(code: number): IWork | null  {
-    return this.listWork!.find(cert => cert.code === code) || null;
+    const work = this.listWork!.find(cert => cert.code === code) || null;
+    if(work?.tecnologies){
+      this.workService.getSkillUrls(work?.tecnologies).subscribe(res=>{
+        work.skillList = res;
+      })
+    }
+    return work;
   }
 
   private findMaxCode(): number {

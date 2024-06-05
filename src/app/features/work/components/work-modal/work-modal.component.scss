@@ -14,20 +14,23 @@
 }
 
 .modal-container {
-  @include container-box ;
-  @include customize-scrollbar($primary-color);
-  background: $background-card;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-  max-width: 80%;
-  height: auto !important;
-  max-height: 80%;
+  height: 475px;
+  width: 350px;
+  max-width: 500px;
+  max-height: 635px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   overflow: auto;
+  @include base-card;
+  @include customize-scrollbar($primary-color);
 
   button{
     width: 48px;
     height: 48px;
+    min-width: 48px;
+    min-height: 48px;
     border: none;
     cursor: pointer;
     font-size: larger;
@@ -41,148 +44,70 @@
 }
 
 .image-video{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 540px;
-  height: 314px;
-
-
-  @media (max-width: 550px) {
-      width: 500px !important;
-      height: 270px !important;
-  }
-
-  @media (max-width: 515px) {
-      width: 490px !important;
-      height: 250px !important;
-  }
-
-  @media (max-width: 490px) {
-      width: 405px !important;
-      height: 168px !important;
-  }
-
-  @media (max-width: 470px) {
-      width: 378px !important;
-      height: 156px !important;
-  }
-
-  @media (max-width: 450px) {
-      width: 351px !important;
-      height: 145px !important;
-  }
-
-  @media (max-width: 420px) {
-      width: 324px !important;
-      height: 134px !important;
-  }
-
-  @media (max-width: 380px) {
-      width: 297px !important;
-      height: 123px !important;
-  }
-
-  @media (max-width: 350px) {
-      width: 270px !important;
-      height: 112px !important;
-  }
-
-  @media (max-width: 330px) {
-      width: 243px !important;
-      height: 101px !important;
-  }
-
-  @media (max-height: 350px) {
-      width: 216px !important;
-      height: 90px !important;
-  }
-
+display: flex;
+justify-content: center;
+align-items: center;
+margin-top: .8rem;
+margin-bottom: .8rem;
+width: 100%;
+height: 14rem;
 }
 
-.container-center{
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-direction: column;
-  max-width: 80%;
-
-  .technologies {
-    overflow-x: scroll;
-    @include customize-scrollbar($primary-color);
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: flex-start;
-    max-width: 100%;
-    margin-top: 1rem;
-
-  }
-}
 .skill-card {
   min-width: 80px;
   min-height: 80px;
   margin: 4px;
   font-size: x-small;
-
   border-radius: 16px;
   background-color: $background-card;
-
-
-h6 {
-  margin: 0;
-  padding: 10px;
-  font-size: smaller;
-}
-
-p {
-  margin: 0;
-  padding: 10px;
-  font-size: x-small;
-}
-
-&:hover {
-  box-shadow: 0px 0px 4px 3px $shadow-color;
-}
-
-img {
-  width: 30px !important;
-  height: auto !important;
-  border-radius: 4px !important;
-}
-
-
+  h6 {
+    margin: 0;
+    padding: 10px;
+    font-size: smaller;
+  }
+  p {
+    margin: 0;
+    padding: 10px;
+    font-size: x-small;
+  }
+  &:hover {
+    box-shadow: 0px 0px 4px 3px $shadow-color;
+  }
+  img {
+    width: 30px !important;
+    height: auto !important;
+    border-radius: 4px !important;
+  }
 }
 
 .modal-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 94%;
+  margin-top: 0.5rem;
+  p{
+    padding: 0;
+  }
 }
 
-.modal-body {
-  margin-top: 10px;
+.technologies {
+  overflow-x: scroll;
+  @include customize-scrollbar($primary-color);
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
   align-items: center;
+  max-width: 100%;
+  height: 150px;
+  margin-bottom: 0.5rem;
 }
 
-.primary-color{
-  color: $primary-color;
-  font-weight: 500;
-}
-
-.image-work{
+.container__button{
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  width: 100%;
-  img{
-    width: 100%;
-    height: auto;
-    border-radius: 16px;
-  }
+  width: 94%;
+
   button{
     width: 24px;
     height: 48px;
@@ -195,26 +120,39 @@ img {
   }
 }
 
+@media (max-width: 635px)  {
+  .modal-container{
+    height: 100vh;
+    width:95vw;
 
-
+  }
+}
 @media (max-width: 810px)  {
   .container-center{
     .image-video{
-      width: 350px;
+      width: 100%;
       height: auto;
     }
   }
 }
 
-@media (max-width: 741px)  {
+@media (max-height: 480px)  {
   .container-center{
     .image-video{
-      width: 220px;
+      width: 100%;
       height: auto;
     }
-    .tecnologies{
-      width: 220px;
-      height: auto;
-    }
+  }
+  .technologies {
+    overflow-x:hidden;
+    display:block;
+    flex-direction: row;
+    align-items: center;
+    max-width: 100%;
+    height: 0px;
+  }
+  .modal-container {
+    height: 100vh;
+    width:95vw;
   }
 }

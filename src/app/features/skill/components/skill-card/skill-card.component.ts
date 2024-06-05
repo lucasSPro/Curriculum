@@ -1,30 +1,31 @@
 import { Component, Input, OnInit } from '@angular/core';
 
+import { ISkill } from '../../interfaces/ISkill';
+
 @Component({
   selector: 'app-skill-card',
   templateUrl: './skill-card.component.html',
   styleUrls: ['./skill-card.component.scss']
 })
 export class SkillCardComponent implements OnInit {
-  @Input() name: string = '';
-  @Input() image: string = '';
-  @Input() porcentage: number = 0;
+
+  @Input() skill!: ISkill;
 
   ngOnInit() {
     this.animateProgressBar();
   }
 
   animateProgressBar() {
-    let targetPercentage = this.porcentage;
+    let targetPercentage = this.skill.percent;
     let currentPercentage = 0;
 
     const interval = setInterval(() => {
       currentPercentage += 5;
       if (currentPercentage >= targetPercentage) {
-        this.porcentage = targetPercentage;
+        this.skill.percent = targetPercentage;
         clearInterval(interval);
       } else {
-        this.porcentage = currentPercentage;
+        this.skill.percent = currentPercentage;
       }
     }, 100);
   }

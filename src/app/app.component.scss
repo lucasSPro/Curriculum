@@ -12,10 +12,23 @@
   background-size:auto;
   background-repeat: repeat-y;
 }
+.pages{
+  height: max-content;
+  width: max-content;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
 
 /* Animação */
 .main-container {
   animation: up-down 25s steps(1000) infinite;
+}
+
+.spinner{
+  max-height: 50vh;
+  background-color: aliceblue;
 }
 
 @keyframes up-down {
@@ -24,17 +37,29 @@
 
 /* navigation */
 .bottom-navigation{
+  margin-left: 0!important;
+  padding: 0!important;
   position: absolute;
-  margin-top: 80vh;
-  width: 320px;
+  margin-top: 85vh;
+  width: 330px;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
-  flex-direction: row;
 }
 
+@media (min-width: 620px) {
+  .bottom-navigation{
+    margin-top: calc(35% - 320px);
+    margin-right: 94%;
+    width: 52px;
+  }
+}
 
-
+@media (max-height: 376px) {
+  .bottom-navigation{
+    margin-top: calc(50% - 320px);
+  }
+}
 
 
 

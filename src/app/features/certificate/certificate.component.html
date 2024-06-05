@@ -1,8 +1,8 @@
-<h3>{{certificate | typeWriterEffect:100 | async}}</h3>
+<h3 *ngIf="!loading" >{{certificate | typeWriterEffect:100 | async}}</h3>
 
-<div class="container-certificate">
-  <div *ngFor="let item of listCertificate; let i = index">
-    <app-certificate-card  [certificate]="item" (certificateCodeClick)="openCertificateModal($event)"></app-certificate-card>
+<div *ngIf="!loading" class="container-certificate">
+  <div class="certificates">
+    <app-certificate-card *ngFor="let item of listCertificate; let i = index" [certificate]="item" (certificateCodeClick)="openCertificateModal($event)"></app-certificate-card>
   </div>
 </div>
 

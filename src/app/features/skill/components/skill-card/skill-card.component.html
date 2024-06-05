@@ -1,7 +1,13 @@
-<div class="skill-card">
-  <h6>{{ name }}</h6>
-  <img [src]=" 'assets/icons/logo_' + image +'.png'" alt="{{ name }}" />
-  <div class="base-progress-bar"></div>
-  <p>{{ porcentage + '%' }}</p>
-  <div class="barra-progress" [style.width.%]="porcentage - 15"></div>
+<div class="skill-card" [ngClass]="{'mark':skill.profisional}" >
+  <div class="center">
+    <h6>{{ skill.name }}</h6>
+    <p  *ngIf="skill.profisional">Experiência profissional</p>
+    <p  *ngIf="!skill.profisional"></p>
+    <img [src]=" skill.image" alt="{{ skill.name }}" />
+    <article>{{ skill.percent + '%' }}</article>
+  </div>
+  <div class="container-progress">
+    <div class="base-progress-bar"></div>
+    <div class="barra-progress" [style.width.px]="skill.percent"></div>
+  </div>
 </div>

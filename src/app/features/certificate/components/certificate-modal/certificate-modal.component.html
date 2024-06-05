@@ -1,6 +1,5 @@
 <div *ngIf="showModal" class="modal-overlay">
-
-  <div class="modal-container">
+  <div class="modal-container scale-up-center">
     <div class="modal-header">
       <h4>{{ "< " + certificate.name + " />" | typeWriterEffect:100 | async }}</h4>
       <button (click)="closeModal()">
@@ -8,19 +7,24 @@
       </button>
     </div>
     <div class="modal-body">
-      <p> <b>{{ certificate?.caption }}</b></p>
+      <p>{{ certificate.caption }}</p>
       <div class="image-certificate">
+        <img [src]="certificate.image" alt="{{ certificate.name }}" />
+      </div>
+      <div class="container-buttons">
         <button [disabled]="firstCertificate" [ngClass]="{'disabled-button': firstCertificate}"  (click)="changeCertificate(-1)">
           <fa-icon [icon]="icon_chevron_left"></fa-icon>
         </button>
-        <img [src]="'assets/certificates/' + certificate?.image + '.png'" alt="{{ certificate?.name }}" />
+
         <button [disabled]="lastCertificate" [ngClass]="{'disabled-button': lastCertificate}" (click)="changeCertificate(1)">
           <fa-icon [icon]="icon_chevron_right"></fa-icon>
         </button>
       </div>
-      <p>Emitido por: <b>{{ certificate?.issuer }}</b> </p>
-      <p>Ano: <b>{{ certificate?.year }}</b></p>
-      <p>Duração: <b>{{ certificate?.workload }}</b> horas </p>
+      <div class="container-infos">
+        <p>Emitido por: <b>{{ certificate.issuer }}</b> </p>
+        <p>Ano: <b>{{ certificate.year }}</b></p>
+        <p>Duração: <b>{{ certificate.workload }}</b> horas </p>
+      </div>
     </div>
   </div>
 </div>

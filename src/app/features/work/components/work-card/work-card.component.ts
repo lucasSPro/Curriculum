@@ -1,22 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { SafeResourceUrl } from '@angular/platform-browser';
 
 import { faEye } from '@fortawesome/free-solid-svg-icons';
-
-
-export interface IWork  {
-  code: number,
-  name: string,
-  caption: string,
-  about: string,
-  tecnologies: string[],
-  image: string,
-  thumbnail: string,
-  urlSafe: SafeResourceUrl | null,
-  youtube?: string | null,
-  github?: string | null,
-  playstore?: string | null,
-}
+import { IWork } from '../../interfaces/IWork';
 
 @Component({
   selector: 'app-work-card',
@@ -40,6 +25,11 @@ export class WorkCardComponent implements OnInit {
   openGitHub(): void {
     if (this.work.github) {
       window.open(this.work.github, '_blank');
+    }
+  }
+  openPlaystore(): void {
+    if (this.work.playstore) {
+      window.open(this.work.playstore, '_blank');
     }
   }
 }

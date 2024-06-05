@@ -1,6 +1,19 @@
-<div class="center main-container">
-  <div #elementToAnimation class="main-container">
-    <router-outlet ></router-outlet>
+<div class="center">
+  <div #elementToAnimation  class="main-container">
+    <div class="pages">
+      <router-outlet ></router-outlet>
+    </div>
+    <div class="spinner">
+      <ngx-spinner
+      bdColor="rgba(0, 0, 0, 0.1)"
+      size="default"
+      color="#fff"
+      type="square-spin"
+      [fullScreen]="false"
+      >
+        <p style="color: white; font-size:small; font-weight: 100;" > {{loadingText | typeWriterEffect:300 | async}} </p>
+      </ngx-spinner>
+    </div>
   </div>
   <div *ngIf="!initialPage"  class="bottom-navigation">
     <app-navigation></app-navigation>

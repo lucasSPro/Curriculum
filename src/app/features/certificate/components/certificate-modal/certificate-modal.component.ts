@@ -1,7 +1,7 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 
-import { ICertificate } from '../certificate-card/certificate-card.component';
 import { faClose, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import { ICertificate } from '../../interfaces/ICertificate';
 
 @Component({
   selector: 'app-certificate-modal',
@@ -20,12 +20,9 @@ export class CertificateModalComponent implements OnInit {
   icon_chevron_left = faChevronLeft;
   icon_chevron_right = faChevronRight;
 
-  constructor() {
-  }
+  constructor() {}
 
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
 
   closeModal() {
     this.closeModalEvent.emit();

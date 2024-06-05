@@ -1,26 +1,37 @@
 @import '../../../../../styles.scss';
 
 .certificate-card {
-  width: 140px;
-  height: 220px;
-  margin: 10px;
+  flex: 20%;
+  height: max-content;
   @include base-card;
 }
 
-.certificate-card img {
-  width: 140px;
+.center{
+  width: inherit;
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.certificate-card p {
+.certificate-card img {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+}
+
+.certificate-card p, h6 {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  max-width: 130px;
 }
 
 button{
   width: 48px;
   height: 48px;
   border: none;
+  margin-bottom: 3px;
   cursor: pointer;
   font-size: larger;
   border-radius: 16px;

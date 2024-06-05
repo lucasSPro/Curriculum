@@ -31,9 +31,16 @@ select {
 .container-skill {
   display: flex;
   flex-wrap: wrap;
+  gap: 1rem;
+  padding: .5rem;
   justify-content: center;
   align-items: center;
+  align-content: flex-start;
   overflow-y: scroll;
+
+  app-skill-card{
+    flex: 20%;
+  }
 
   @include container-box;
   @include customize-scrollbar($transparent-color);

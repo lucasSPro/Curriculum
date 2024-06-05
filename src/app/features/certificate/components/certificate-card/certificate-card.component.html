@@ -1,10 +1,12 @@
 <div  class="certificate-card">
-  <h6>{{ certificate.name }}</h6>
-  <img [src]=" 'assets/certificates/' + certificate.thumbnail +'.png'" alt="{{ certificate.name }}" />
-  <p>{{ certificate.caption }}</p>
-  <button (click)="emitCertificateCode()" >
-    <fa-icon [icon]="icon_eye"></fa-icon>
-  </button>
+  <div class="center">
+    <h6>{{ certificate.name }}</h6>
+    <img [src]="certificate.thumbnail" alt="{{ certificate.name }}" />
+    <p>{{ certificate.caption }}</p>
+    <button (click)="emitCertificateCode()" >
+      <fa-icon [icon]="icon_eye"></fa-icon>
+    </button>
+  </div>
 </div>
 
 

@@ -1,5 +1,6 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
 
 import { CertificateRoutingModule } from './certificate.routing';
 import { PipesModule } from 'src/app/shared/pipes/pipes.module';
@@ -8,6 +9,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CertificateComponent } from './certificate.component';
 import { CertificateCardComponent } from './components/certificate-card/certificate-card.component';
 import { CertificateModalComponent } from './components/certificate-modal/certificate-modal.component';
+
 
 @NgModule({
   imports: [
@@ -20,6 +22,7 @@ import { CertificateModalComponent } from './components/certificate-modal/certif
     CertificateComponent,
     CertificateCardComponent,
     CertificateModalComponent,
-  ]
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class CertificateModule { }

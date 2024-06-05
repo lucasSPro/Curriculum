@@ -1,35 +1,65 @@
 @import '../../../../../styles.scss';
 
 .work-card {
-  width: 140px;
-  height: 200px;
-  margin: 10px;
+  flex: 20%;
+  height: max-content;
+
   @include base-card;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  transition: background-color 0.9s ease;
+  border: 1px solid transparent;
 }
 
+
 .work-card img {
-  width: 140px;
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  margin-top: 4px;
 }
 
 .work-card p {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-size: xx-small;
+  border: 1px solid transparent;
+
+
+  padding: 6px;
+  max-width: 80%;
+  border-radius: 8px;
+}
+
+.mark{
+  border: 1px solid $transparent-color;
+}
+.mark:hover{
+  border: 1px solid $font-color-hover;
+  p{
+    border-bottom: 1px solid $primary-color;
+  }
 }
 
 .container-button{
+  margin-top: 8px;
   margin-bottom: 0.4rem;
-  width: 1;
+  width: 100%;
   padding: 0rem 1rem;
   display: flex;
   align-items: center;
   justify-content: space-around;
+
 }
 
 button{
   width: 48px;
   height: 48px;
   border: none;
+  margin-bottom: 3px;
   cursor: pointer;
   font-size: larger;
   border-radius: 16px;
@@ -46,6 +76,18 @@ button:hover{
 }
 
 
+
+@media (max-width: 450px)  {
+  .work-card {
+    width: 136px !important;
+    height: 200px !important;
+  }
+  .work-card img {
+    width: 136px !important;
+    height: auto;
+  }
+
+}
 
 
 

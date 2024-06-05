@@ -12,20 +12,18 @@
   align-items: center;
   justify-content: center;
 }
-
-
 .modal-container {
-  @include container-box ;
-  margin-top: 2rem !important;
-  background: $background-card;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-  max-width: 80%;
-  height: auto !important;
-  max-height: 80%;
+  height: 475px;
+  width: 350px;
+  max-width: 500px;
+  max-height: 635px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  @include base-card;
+  @include customize-scrollbar($primary-color);
   overflow: auto;
-
   button{
     width: 48px;
     height: 48px;
@@ -40,18 +38,73 @@
     border: 1px solid $primary-color;
   }
 }
-
-
 .modal-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 94%;
+  margin-top: 0.5rem;
+  p{
+    padding: 0;
+  }
 }
-
 .modal-body {
-  margin-top: 10px;
+  margin-top: 8px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
   p{
     font-size: small;
+    padding: 0;
+  }
+  .image-certificate{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 16rem;
+    img{
+      width: 100%;
+      height:auto;
+    }
+  }
+  .container-buttons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 94%;
+    margin-top: 0.5rem;
+    button{
+      width: 24px;
+      height: 48px;
+      min-width: 48px;
+      min-height: 48px;
+      border: none;
+      cursor: pointer;
+      font-size: larger;
+      border-radius: 16px;
+      color: $font-color;
+      background-color: $transparent-color;
+    }
+    button:hover{
+      border: 1px solid $primary-color;
+    }
+  }
+}
+.container-infos {
+  display: flex;
+  flex-direction: row;
+  width: 94%;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+
+  p:nth-child(2),
+  p:nth-child(3) {
+    padding-left: 1rem;
   }
 }
 
@@ -59,56 +112,35 @@
   color: $primary-color;
   font-weight: 500;
 }
+@media (max-width: 635px)  {
+  .modal-container{
+    height: 90vh;
+    width: 95vw;
 
-.image-certificate{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 1rem 0rem;
-  img{
-    max-width: 75%;
-    max-height:75%;
-    border-radius: 16px;
-
-    @media (max-height: 710px) {
-      max-width: 65% !important;
-      max-height: 65% !important;
-    }
-
-    @media (max-height: 680px) {
-      max-width: 60% !important;
-      max-height: 60% !important;
-    }
-
-    @media (max-height: 610px) {
-      max-width: 55% !important;
-      max-height: 55% !important;
-    }
-
-    @media (max-height: 570px) {
-      max-width: 40% !important;
-      max-height: 40% !important;
-    }
-
-    @media (max-height: 500px) {
-      max-width: 30% !important;
-      max-height: 30% !important;
-    }
-    @media (max-height: 400px) {
-      max-width: 20% !important;
-      max-height: 20% !important;
-    }
-
-  }
-  button{
-    width: 24px;
-    height: 48px;
-    border: none;
-    cursor: pointer;
-    font-size: larger;
-    border-radius: 16px;
-    color: $font-color;
-    background-color: $transparent-color;
   }
 }
+@media (max-width: 810px)  {
+  .container-center{
+    .image-video{
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
+@media (max-height: 480px)  {
+  .modal-container {
+    height: auto;
+    width: 350px;
+  }
+  .container-infos {
+    overflow-x:hidden;
+    display:block;
+    flex-direction: row;
+    align-items: center;
+    max-width: 100%;
+    height: 0px;
+  }
+}
+
 

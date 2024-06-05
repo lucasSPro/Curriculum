@@ -1,10 +1,11 @@
 @import '../../../../styles.scss';
 
 .container{
-  width: 320px;
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  width: 330px;
 }
 .icon {
   width: 48px;
@@ -14,7 +15,7 @@
   align-items: center;
   justify-content: center;
   color: $primary-color;;
-  border: 1px solid $background-main-container;
+  border: 1px solid $transparent-color;
   font-size: larger;
 }
 .icon:hover {
@@ -30,9 +31,33 @@
   background: $primary-color;
 }
 
+
+@media (min-width: 620px) {
+  .container {
+    width: 52px !important;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 320px;
+  }
+  .icon {
+    width: 56px;
+    height: 48px;
+    border-radius: 0px 16px 16px 0px !important;
+  }
+}
+
+@media (max-width: 620px) {
+  .container {
+    width: 350px;
+    flex-direction: row;
+    align-items: flex-start;
+    height: 52px !important;
+  }
+}
 @media (max-width: 281px) {
   .container {
     width: 270px;
   }
 }
+
 

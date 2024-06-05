@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 
-import { ICertificate } from './components/certificate-card/certificate-card.component';
 import { GlobalMessage } from 'src/app/shared/service/global-message.service';
+import { CertificateService } from './services/certificate.service';
+import { ICertificate } from './interfaces/ICertificate';
 
 @Component({
   selector: 'app-certificate',
@@ -9,132 +11,35 @@ import { GlobalMessage } from 'src/app/shared/service/global-message.service';
   styleUrls: ['./certificate.component.scss']
 })
 export class CertificateComponent implements OnInit {
-
-  certificate: string = '< Aprendizagem Continua />'
+  certificates$: Observable<ICertificate[]> | undefined;
+  certificate: string = '< Aprendizagem Contínua />'
   modalOpen: boolean = false;
   certificateModal!: ICertificate ;
   currentCertificateModal: number = 0;
   firstCertificate: boolean =  false;
   lastCertificate: boolean =  false;
   certificateWithMaxCode = 0;
-  listCertificate: ICertificate[] = [
-    {
-      code: 1,
-      name: 'GoStack',
-      caption: 'Stack node, react e react native',
-      issuer: 'Rockeseat',
-      image: 'gostack',
-      thumbnail: 'gostack_thumbnail',
-      year: 2020,
-      workload: 160,
-    },
-    {
-      code: 2,
-      name: 'Grasshopper',
-      caption: 'Fundamentos de codificação',
-      issuer: 'Grasshopper',
-      image: 'Grasshopper_f',
-      thumbnail: 'Grasshopper_f_thumbnail',
-      year: 2021,
-      workload: 30,
-    },
-    {
-      code: 3,
-      name: 'Grasshopper',
-      caption: 'Fundamentos de programação II',
-      issuer: 'Grasshopper',
-      image: 'Grasshopper_II',
-      thumbnail: 'Grasshopper_II_thumbnail',
-      year: 2021,
-      workload: 30,
-    },
-    {
-      code: 4,
-      name: 'DevMedia',
-      caption: 'O que é UML?',
-      issuer: 'DevMedia',
-      image: 'devmedia_uml',
-      thumbnail: 'devmedia_uml_thumbnail',
-      year: 2021,
-      workload: 3,
-    },
-    {
-      code: 5,
-      name: 'DevMedia',
-      caption: 'O que é levantamento de requisitos?',
-      issuer: 'DevMedia',
-      image: 'devmedia_requisitos',
-      thumbnail: 'devmedia_requisitos_thumbnail',
-      year: 2021,
-      workload: 3,
-    },
-    {
-      code: 6,
-      name: 'LGPD',
-      caption: 'Certificado LGPD',
-      issuer: 'Cadmus',
-      image: 'cadmus_LGPD',
-      thumbnail: 'cadmus_LGPD_thumbnail',
-      year: 2023,
-      workload: 4,
-    },
-    {
-      code: 7,
-      name: 'DevMedia',
-      caption: 'Levantamento de requisitos: Exemplo prático de entrevista',
-      issuer: 'DevMedia',
-      image: 'devmedia_requisitos_P',
-      thumbnail: 'devmedia_requisitos_P_thumbnail',
-      year: 2021,
-      workload: 5,
-    },
-    {
-      code: 8,
-      name: 'Arquitetura',
-      caption: 'Fundamentos de Arquitetura de Sistemas',
-      issuer: 'DIO',
-      image: 'arquitetura_FAS',
-      thumbnail: 'arquitetura_FAS_thumbnail',
-      year: 2021,
-      workload: 7,
-    },
-    {
-      code: 9,
-      name: 'Metodologia Agil',
-      caption: 'Trabalhando em equipes ágeis',
-      issuer: 'DIO',
-      image: 'agil_TEA',
-      thumbnail: 'agil_TEA_thumbnail',
-      year: 2023,
-      workload: 3,
-    },
-    {
-      code: 10,
-      name: 'Aceleração Global',
-      caption: '#7 Avanade',
-      issuer: 'DIO',
-      image: 'acelerecao_7A',
-      thumbnail: 'acelerecao_7A_thumbnail',
-      year: 2021,
-      workload: 10,
-    },
-    {
-      code: 11,
-      name: 'DOWHILE 2021',
-      caption: '#Build The Future',
-      issuer: 'Rockeseat',
-      image: 'dowhile_2021',
-      thumbnail: 'dowhile_2021_thumbnail',
-      year: 2021,
-      workload: 10,
-    },
-  ]
+  loading: boolean =  true;
+  listCertificate!: ICertificate[] ;
 
-  constructor(private globalMessage: GlobalMessage) { }
+  constructor(private globalMessage: GlobalMessage,
+              private certificateService: CertificateService) { }
 
   ngOnInit() {
     this.globalMessage.messageFromHireMe(true);
-    this.certificateWithMaxCode = this.findMaxCode();
+    this.globalMessage.messageInnitialPage(false);
+    //this.addListCertificate();
+    this.certificates$ = this.certificateService.getAllCertificates();
+
+    this.globalMessage.showSpinner();
+    this.certificates$.subscribe(certificates => {
+      this.listCertificate =  certificates.sort((a,b)=> a.code - b.code);
+      this.globalMessage.hideSpinner();
+      if(certificates.length > 0){
+        this.loading = false;
+      }
+      this.certificateWithMaxCode = this.findMaxCode();
+    });
   }
 
   openModal() {
@@ -167,6 +72,7 @@ export class CertificateComponent implements OnInit {
     }
 
   }
+
   verifyCode(code: number) {
     if (code === 1) {
       this.firstCertificate = true;
@@ -192,6 +98,14 @@ export class CertificateComponent implements OnInit {
   closeCertificateModal() {
     this.closeModal();
   }
+
+  // addListCertificate(): void {
+  //   this.certificateModel.bulkAddCertificates(this.listCertificate).then(() => {
+  //     console.log('Certificate added successfully');
+  //   }).catch(error => {
+  //     console.error('Error adding certificate:', error);
+  //   });
+  // }
 
   private findCertificateByCode(code: number): ICertificate | null  {
     return this.listCertificate!.find(cert => cert.code === code) || null;

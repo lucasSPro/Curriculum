@@ -1,8 +1,19 @@
-<h3>{{about | typeWriterEffect:200 | async}}</h3>
+<h3 *ngIf="!loading" >{{about | typeWriterEffect:100 | async}}</h3>
 
-<div class="container-about">
+<div *ngIf="!loading" class="container-about">
   <img src="https://github.com/lucasSPro.png" alt="Foto perfil">
-  <div class="text">
-   <p>{{resume}}</p>
+  <div class="about-text">
+    <div *ngFor="let item of listPresentation">
+      <app-about-item [item]="item" ></app-about-item>
+    </div>
+    <p style="font-size: smaller; font-weight: 200; margin-top: 8px;">Últimas expêriencias</p>
+    <div *ngFor="let item of listExperiences">
+      <app-about-item [item]="item" ></app-about-item>
+    </div>
+      <p style="font-size: smaller; font-weight: 200; margin-top: 8px;">Formações academicas</p>
+      <div *ngFor="let item of listAcademy">
+        <app-about-item [item]="item" ></app-about-item>
+      </div>
   </div>
 </div>
+

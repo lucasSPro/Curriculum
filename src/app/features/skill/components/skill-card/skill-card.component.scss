@@ -1,33 +1,75 @@
 @import '../../../../../styles.scss';
 
 .skill-card {
-  width: 140px;
-  height: 140px;
-  margin: 10px;
+  flex: 20%;
+  height: 180px;
+  min-width: 140px;
   @include base-card;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  .center{
+    width: inherit;
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    p{
+      font-size: xx-small;
+      height: 8px;
+      max-width: 90%;
+      border-radius: 8px;
+      border: 1px solid $transparent-color;
+    }
+    strong{
+      margin-top: 8px;
+    }
+    article{
+      margin-top: 0.7rem;
+      font-size: small;
+    }
+  }
+
+}
+.mark{
+  border: 1px solid $transparent-color;
+}
+.mark:hover{
+  border: 1px solid $font-color-hover;
+  p{
+    border-bottom: 1px solid $primary-color;
+  }
 }
 
 .skill-card img {
   height: 40px;
+  margin-top: 8px;
 }
-.base-progress-bar {
-  width: 120px;
-  height: 4px;
-  flex-shrink: 0;
-  border-radius: 15px;
-  background: $second-color;
-  position: absolute;
-  bottom: 1rem;
-  left: 10px;
-}
-.barra-progress {
-  width: 0 ;
-  height: 4px;
-  flex-shrink: 0;
-  border-radius: 15px;
-  background: $primary-color;
-  position: absolute;
-  bottom: 1rem;
-  left: 10px;
-  transition: width 1s ease;
+.container-progress{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  margin: 0rem 1rem;
+  .base-progress-bar {
+    width: 100px;
+    height: 4px;
+
+    border-radius: 15px;
+    background: $second-color;
+    position: absolute;
+    bottom: 1rem;
+
+  }
+  .barra-progress {
+     width: 0 ;
+    height: 4px;
+    border-radius: 15px;
+    background: $primary-color;
+    position: absolute;
+    bottom: 1rem;
+    transition: width 1s ease;
+  }
 }

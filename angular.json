@@ -17,6 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+
             "outputPath": "dist/resume",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -30,9 +31,10 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/ngx-spinner/animations/square-spin.css",
               "src/styles.scss"
-            ],
-            "scripts": []
+            ]
+
           },
           "configurations": {
             "production": {

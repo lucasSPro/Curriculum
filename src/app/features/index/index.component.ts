@@ -16,6 +16,7 @@ export class IndexComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.globalMessage.messageFromHireMe(true);
+    this.globalMessage.messageInnitialPage(true);
   }
   ngAfterViewInit() {}
 

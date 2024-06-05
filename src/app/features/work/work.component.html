@@ -1,9 +1,9 @@
 
-<h3>{{work | typeWriterEffect:100 | async}}</h3>
-<div class="container-work">
-  <div *ngFor="let item of listWork; let i = index">
-    <app-work-card [work]="item" (workButtonClick)="openWorkModal($event)"></app-work-card>
-  </div>
+<h3 *ngIf="!loading" >{{work | typeWriterEffect:100 | async}}</h3>
+<div *ngIf="!loading" class="container-work">
+   <div class="projects">
+      <app-work-card *ngFor="let item of listWork" [work]="item" (workButtonClick)="openWorkModal($event)"></app-work-card>
+   </div>
 </div>
 
 <app-work-modal

@@ -1,17 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 import { faEye } from '@fortawesome/free-solid-svg-icons';
-
-export interface ICertificate  {
-  code: number,
-  name: string,
-  caption: string,
-  issuer: string,
-  image: string,
-  thumbnail: string,
-  year: number,
-  workload: number,
-}
+import { ICertificate } from '../../interfaces/ICertificate';
 
 @Component({
   selector: 'app-certificate-card',
