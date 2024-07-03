@@ -5,6 +5,9 @@ import { Router } from '@angular/router';
 import { ContactService } from './services/contact.service';
 import { IContact } from './interfaces/IContact';
 import { Observable } from 'rxjs';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { faEnvelope, faDownload } from '@fortawesome/free-solid-svg-icons';
+import { faLinkedin, faGithub, faWhatsapp, faInstagram } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
   selector: 'app-contact',
@@ -14,6 +17,15 @@ import { Observable } from 'rxjs';
 export class ContactComponent implements OnInit {
   contact: string = '< Contato />'
   loading: boolean = true;
+
+  iconMap: { [key: string]: any } = {
+  email:  faEnvelope,
+  linkedin:  faLinkedin,
+  github:  faGithub,
+  download:  faDownload,
+  whatsapp:  faWhatsapp,
+  instagram:  faInstagram,
+  }
 
   contacts$: Observable<IContact[]> | undefined;
   listContact!: IContact[];
@@ -32,7 +44,17 @@ export class ContactComponent implements OnInit {
     this.globalMessage.showSpinner();
 
     this.contacts$.subscribe(contacts => {
-      this.listContact =  contacts;
+      const contactsWithIcon = contacts.map(item => ({
+        description: item.description,
+        img: this.iconMap[item.img],
+        link:item.link,
+        name:item.name,
+        subtitle:item.subtitle
+      }));
+
+      this.listContact =  contactsWithIcon;
+
+      console.log(contacts);
       this.globalMessage.hideSpinner();
       if(contacts.length > 0){
         this.loading = false;

@@ -19,7 +19,7 @@ details {
     background: $primary-color;
     transition: transform 10.3s ease;
     p {
-      color: $font-color;
+      color: $font-color-contrast;
       font-size: 14px;
       padding: 0;
       margin: 0;
@@ -33,7 +33,7 @@ details {
       &::after {
         content: url("../../../../../assets/icons/chevron-up.svg");
         margin-top: 5px;
-        fill: $font-color;
+        fill: $font-color-contrast;
       }
 
       border-radius: 7px 7px 0 0;

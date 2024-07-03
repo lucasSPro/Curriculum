@@ -11,7 +11,7 @@ import { GlobalMessage } from 'src/app/shared/service/global-message.service';
 })
 export class AppComponent implements OnInit, AfterViewInit, AfterViewChecked, OnDestroy {
   private spinnerSubscription!: Subscription;
-  title = 'resume';
+  title = 'Portifólio';
   loadingText: string = 'Carregando...';
   initialPage: boolean = true;
   @ViewChild('elementToAnimation') elementToAnimation!: ElementRef;

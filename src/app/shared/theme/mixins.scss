@@ -74,7 +74,15 @@
   }
 
   &:hover {
-    background-color: $background-main-container;
+    background-color: $primary-color;
     box-shadow: 0px 0px 4px 3px $shadow-color;
+
+     p, h6{
+       color:  $font-color-contrast;
+     }
+     svg{
+      fill: $font-color-contrast ;
+      }
+
   }
 }

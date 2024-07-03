@@ -1,6 +1,7 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 
 import { faClose, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+
 import { ICertificate } from '../../interfaces/ICertificate';
 
 @Component({

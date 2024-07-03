@@ -11,6 +11,25 @@
   justify-content: flex-start;
   transition: background-color 0.9s ease;
   border: 1px solid transparent;
+
+  &:hover{
+    .modal-header{
+      h4{
+        color: $font-color-contrast;
+      }
+      button{
+        color: $font-color-contrast;
+      }
+    }
+    .modal-body{
+      .container-buttons{
+        button{
+          color: $font-color-contrast;
+        }
+      }
+    }
+  }
+
 }
 
 
@@ -40,7 +59,7 @@
 .mark:hover{
   border: 1px solid $font-color-hover;
   p{
-    border-bottom: 1px solid $primary-color;
+    border-bottom: 1px solid $font-color-contrast;
   }
 }
 
@@ -53,27 +72,32 @@
   align-items: center;
   justify-content: space-around;
 
-}
 
-button{
-  width: 48px;
-  height: 48px;
-  border: none;
-  margin-bottom: 3px;
-  cursor: pointer;
-  font-size: larger;
-  border-radius: 16px;
-  color: $font-color;
-  background-color: $transparent-color;
-  svg{
-    fill: $font-color ;
-    width: 20px;
-    height: 20px;
   }
-}
-button:hover{
-  border: 1px solid $primary-color;
-}
+
+  button{
+    width: 48px;
+    height: 48px;
+    border: none;
+    margin-bottom: 3px;
+    cursor: pointer;
+    font-size: larger;
+    border-radius: 16px;
+    color: $font-color;
+    background-color: $transparent-color;
+    svg{
+      fill: $font-color ;
+      width: 20px;
+      height: 20px;
+      }
+  }
+  button:hover{
+    color: $font-color-contrast;
+    border: 1px solid $font-color-contrast;
+
+
+  }
+
 
 
 

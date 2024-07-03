@@ -1,4 +1,6 @@
 <h3 *ngIf="!loading" >{{skill | typeWriterEffect:200 | async}}</h3>
 <div *ngIf="!loading" class="container-skill">
-  <app-skill-card *ngFor="let item of listSkill" [skill]="item" ></app-skill-card>
+  <div class="skills">
+    <app-skill-card *ngFor="let item of listSkill" [skill]="item" ></app-skill-card>
+  </div>
 </div>

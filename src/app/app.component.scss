@@ -5,10 +5,16 @@
   @include flex-center;
   position: relative;
 }
+.text_spinner{
+  color: $font-color;
+  font-size:small;
+  font-weight: 100;
+}
 .main-container{
   @include flex-center;
-  background-image: url("../assets/decorator_left.png");
+  background-image: url("../assets/decorator_left90.png");
   background-position: 0 0;
+
   background-size:auto;
   background-repeat: repeat-y;
 }

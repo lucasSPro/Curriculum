@@ -4,8 +4,9 @@
   <div *ngFor="let item of listContact" >
     <figure (click)="openLink(item.link)" >
       <div class="container-svg">
-        <img src="assets/icons/{{ item.img }}.svg" alt="{{ item.name }}">
+        <fa-icon [icon]="item.img"></fa-icon>
       </div>
+
         <figcaption>
           <strong>{{item.subtitle}}</strong>
           <p>{{item.description}}</p>

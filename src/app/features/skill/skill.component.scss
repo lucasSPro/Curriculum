@@ -32,15 +32,27 @@ select {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  padding: .5rem;
+  padding: 0.5rem 0.5rem;
   justify-content: center;
   align-items: center;
   align-content: flex-start;
   overflow-y: scroll;
 
-  app-skill-card{
-    flex: 20%;
+  .skills{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: .5rem .5rem;
+    justify-content: center;
+    align-items: center;
+    overflow-y: scroll;
+    @include customize-scrollbar($transparent-color);
+    app-skill-card{
+      display: flex;
+      flex: 20%;
+    }
   }
+
 
   @include container-box;
   @include customize-scrollbar($transparent-color);

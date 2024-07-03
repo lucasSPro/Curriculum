@@ -13,10 +13,10 @@
   justify-content: center;
 }
 .modal-container {
-  height: 475px;
-  width: 350px;
-  max-width: 500px;
-  max-height: 635px;
+  height: 95vh;
+  width:70vw;
+  max-width: 70vh;
+  max-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -35,7 +35,25 @@
     background-color: $transparent-color;
   }
   button:hover{
-    border: 1px solid $primary-color;
+    border: 1px solid $font-color-contrast;
+    color: $font-color-contrast;
+  }
+  &:hover{
+    .modal-header{
+      h4{
+        color: $font-color-contrast;
+      }
+      button{
+        color: $font-color-contrast;
+      }
+    }
+    .modal-body{
+      .container-buttons{
+        button{
+          color: $font-color-contrast;
+        }
+      }
+    }
   }
 }
 .modal-header {
@@ -91,7 +109,7 @@
       background-color: $transparent-color;
     }
     button:hover{
-      border: 1px solid $primary-color;
+      border: 1px solid $font-color-contrast;
     }
   }
 }
@@ -114,7 +132,7 @@
 }
 @media (max-width: 635px)  {
   .modal-container{
-    height: 90vh;
+    height: 80vh;
     width: 95vw;
 
   }

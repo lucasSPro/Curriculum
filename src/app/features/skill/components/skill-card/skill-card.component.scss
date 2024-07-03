@@ -10,6 +10,20 @@
   align-items: center;
   justify-content: flex-start;
 
+  &:hover{
+    article{
+      color: $font-color-contrast;
+    }
+    .container-progress{
+      .base-progress-bar {
+        background: $background-card;
+      }
+      .barra-progress {
+        background: $font-color-contrast;
+      }
+    }
+  }
+
   .center{
     width: inherit;
     height: inherit;
@@ -30,6 +44,8 @@
       margin-top: 0.7rem;
       font-size: small;
     }
+
+
   }
 
 }
@@ -37,9 +53,9 @@
   border: 1px solid $transparent-color;
 }
 .mark:hover{
-  border: 1px solid $font-color-hover;
+  border: 1px solid $font-color-contrast;
   p{
-    border-bottom: 1px solid $primary-color;
+    border-bottom: 1px solid $font-color-contrast;
   }
 }
 
